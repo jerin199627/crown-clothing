@@ -44,13 +44,15 @@ class DirectoryMenu extends React.Component{
               
         }
     }
+    //we used spread operation below because the thing was getting bigger, 
+    // so instead of using types={types} linkUrl={linkUrl} just use the spread operator
 
     render(){
         return(
             <div className='directory-menu'>
-                {this.state.sections.map(({title, imageUrl, id, size}) => {
+                {this.state.sections.map(({ id, ...otherSectionProps}) => {
                   return(
-                    <MenuItem key={id} title={title} imgUrl={imageUrl} size={size}/>
+                    <MenuItem key={id} {...otherSectionProps}/>
                   ) 
 
                 }
